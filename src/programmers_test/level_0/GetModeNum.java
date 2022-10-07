@@ -20,6 +20,10 @@ public class GetModeNum { // 프로그래머스 연습문제 최빈값 구하기
         result = new GetModeNum().solution_2(array);
         bw.write(String.valueOf(result));
 
+        bw.write("\n");
+        result = new GetModeNum().solution_3(array);
+        bw.write(String.valueOf(result));
+
         bw.flush();
         bw.close();
         br.close();
@@ -94,5 +98,27 @@ public class GetModeNum { // 프로그래머스 연습문제 최빈값 구하기
         return modeList.get(0);
     }
 
+    // 배열과 반복문 사용
+    private int solution_3(int[] array){
+        int mode = array[0]; // 최빈값을 가질 객체
+        int cnt = 1; // mode 횟수
+        int equalCnt = 0; // 최빈값이 여러개인지 판별하기 위한 객체
 
+        Arrays.sort(array); // 배열 오름차순 정렬
+        System.out.println(Arrays.toString(array));
+        for(int i = 1; i < array.length; i++){
+            if(array[i] == array[i-1]){ // 배열 array 두개의 인덱스 값이 동일할 경우
+                cnt++; // 최빈값 빈도수 증가
+                if(cnt > equalCnt){
+                    equalCnt = cnt;
+                    mode = array[i];
+                }else if(cnt == equalCnt){ // 최빈값의 빈도수와
+                    mode = -1;
+                }
+            }else{
+                cnt = 1;
+            }
+        }
+        return mode;
+    }
 }
