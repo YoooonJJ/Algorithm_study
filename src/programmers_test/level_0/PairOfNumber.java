@@ -51,13 +51,13 @@ public class PairOfNumber { // 프로그래머스 연습문제 순서쌍의 개�
         for(int i=1; i<= n; i++){
             if(n % i == 0) set.add(i);
         }
-        set.forEach(e1 -> {
+        for (Integer e1 : set) {
             set.forEach(e2 -> {
                 if (e1 * e2 == n) {
                     answer.getAndIncrement();
                 }
             });
-        });
+        }
         // set 내부에 접근하는 변수 e1은 Integer
         // int answer = 0; 으로 선언했을 경우 answer 를 형변환 해야 접근 가능하다고 나온다.
         // AtomicInteger  :  int 자료형을 가지고 있는 wrapping 클래스
