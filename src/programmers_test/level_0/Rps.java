@@ -19,6 +19,10 @@ public class Rps { // 프로그래머스 연습문제 가위바위보
         bw.write(result);
         bw.write("\n");
 
+        result = new Rps().solution_3(rsp);
+        bw.write(result);
+        bw.write("\n");
+
         bw.flush();
         bw.close();
         br.close();
@@ -47,5 +51,18 @@ public class Rps { // 프로그래머스 연습문제 가위바위보
     // Stream 사용
     private String solution_2(String rsp){
         return Arrays.stream(rsp.split("")).map(s -> s.equals("2") ? "0" : s.equals("0")? "5" : "2").collect(Collectors.joining());
+    }
+    // Arrays.stream 을 사용하여 배열로 각각 매핑한 다음 해당 값들을 모아서 반환
+    // Collection 을 사용했기 때문에 Collectors.joining()
+    // String 이라면 String.joining()
+
+
+    // replace 사용
+    private String solution_3(String rsp){
+        rsp = rsp.replaceAll("2", "1")
+                .replaceAll("5", "2")
+                .replaceAll("0","5")
+                .replaceAll("1", "0");
+        return rsp;
     }
 }
