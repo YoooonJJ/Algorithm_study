@@ -7,6 +7,15 @@ import java.util.Arrays;
 
 public class No1978 { // 백준 소수찾기
     // https://www.acmicpc.net/problem/1978
+
+
+    /* 윌슨의 정리
+       어떤 수가 소수인지 판단할 수 있게 함.
+       N이 2 이상의 정수라면 다음을 만족한다.
+       (N-1) != -1(mod N)
+         실제로는 잘 사용되지 않는다.
+    * */
+
     private int solution_1(int n, int[] numbers){
         int answer = 0;
         for(int i=0; i<n; i++){
@@ -26,6 +35,15 @@ public class No1978 { // 백준 소수찾기
         }
         return 1;
     }
+/*
+Math.sqrt()
+java.lang.Math 클래스의 sqrt() 메소드
+double 타입의 인수를 전달하면 인수에 대한 double 타입의 제곱근 값을 리턴한다.
+Math.sqrt(9)  -> 3.0
+Math.sqrt(-1) -> NaN
+제곱근은 음수가 나올 수 없으므로 음수 값이 인수로 전달되면 NaN(Not a Number) 리턴
+* */
+
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -39,11 +57,5 @@ public class No1978 { // 백준 소수찾기
 
     }
 }
-/*
-Math.sqrt()
-java.lang.Math 클래스의 sqrt() 메소드
-double 타입의 인수를 전달하면 인수에 대한 double 타입의 제곱근 값을 리턴한다.
-Math.sqrt(9)  -> 3.0
-Math.sqrt(-1) -> NaN
-제곱근은 음수가 나올 수 없으므로 음수 값이 인수로 전달되면 NaN(Not a Number) 리턴
-* */
+
+
